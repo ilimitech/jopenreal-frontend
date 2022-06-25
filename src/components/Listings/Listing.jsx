@@ -141,10 +141,15 @@ class Listing extends Component {
       });
       axios({
         method: 'get',
+        // url: `http://localhost:8080/api/properties`,
         url: `https://api.airtable.com/v0/apprAJrG1euRf2tmF/Listings`,
-        headers: {Authorization: `Bearer keyRMRWZ0xrBXA8Yv`},
+        // headers: {Authorization: `Bearer keyRMRWZ0xrBXA8Yv`}
+        // headers: {"Access-Control-Allow-Origin": "*"},
+        // headers: {"Access-Control-Allow-Origin": "DELETE, POST, GET, OPTIONS"},
+        // headers: {"Access-Control-Allow-Origin": "Content-Type, Authorization, X-Requested-With"}
         
       }).then(({ data: { records } }) => {
+        console.log(url);
         console.log(records);
         this.setState({
           ready: 'loaded',
@@ -224,14 +229,14 @@ class Listing extends Component {
                 {filtered.map(list => (
                   <div key={list.id}>
                     <Link to={`/Listview/${list.id}`}>
-                      <ListItems image={list.fields.icon ? list.fields.icon[0].url : ''} >
-                        <h4>{list.fields.Asking}</h4>
-                        <h5>{list.fields.Name}</h5>
+                    <ListItems image={list.fields.icons ? list.fields.icons[0].url : ''} >
+                        <h4>{list.fields.asking}</h4>
+                        <h5>{list.fields.name}</h5>
                         <Info>
-                          <h6>Bedrooms: {list.fields.Bedrooms}</h6>
-                          <h6>Bathrooms: {list.fields.Bathrooms}</h6>
-                          <h6>Area: {list.fields.Area}</h6>
-                          <h6>Status: {list.fields.Status}</h6>
+                          <h6>Bedroomsx: {list.fields.bedrooms}</h6>
+                          <h6>Bathrooms: {list.fields.bathrooms}</h6>
+                          <h6>Area: {list.fields.area}</h6>
+                          <h6>Status: {list.fields.status}</h6>
                         </Info>
                       </ListItems>
                     </Link>
