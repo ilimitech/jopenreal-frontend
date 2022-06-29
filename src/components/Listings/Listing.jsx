@@ -141,15 +141,15 @@ class Listing extends Component {
       });
       axios({
         method: 'get',
-        // url: `http://localhost:8080/api/properties`,
-        url: `https://api.airtable.com/v0/apprAJrG1euRf2tmF/Listings`,
+        url: `http://localhost:8080/api/listing`
+        // url: `https://api.airtable.com/v0/apprAJrG1euRf2tmF/Listings`,
         // headers: {Authorization: `Bearer keyRMRWZ0xrBXA8Yv`}
         // headers: {"Access-Control-Allow-Origin": "*"},
         // headers: {"Access-Control-Allow-Origin": "DELETE, POST, GET, OPTIONS"},
         // headers: {"Access-Control-Allow-Origin": "Content-Type, Authorization, X-Requested-With"}
         
       }).then(({ data: { records } }) => {
-        console.log(url);
+        // console.log(url);
         console.log(records);
         this.setState({
           ready: 'loaded',
@@ -171,7 +171,7 @@ class Listing extends Component {
   render() {
     const { lists, ready,search } = this.state;
     const filtered = lists.filter(list => {
-      return list.fields.Name.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+      return list.fields.name.toLowerCase().indexOf(search.toLowerCase()) !== -1;
     });
     
     
