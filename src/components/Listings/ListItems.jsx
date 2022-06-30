@@ -36,7 +36,7 @@ const ListItemStyle = styled.div`
 
 const ListItems = ({ children, rating, image }) => (
   <ListItemStyle>
-    <img src={image || 'http://placehold.it/200'} alt="List item" />
+    <img src={"data:image/png;base64," + image || 'http://placehold.it/200'} alt="List item" />
     <div>
       {children}
     </div>

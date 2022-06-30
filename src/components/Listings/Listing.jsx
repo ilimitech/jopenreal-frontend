@@ -229,12 +229,12 @@ class Listing extends Component {
                 {filtered.map(list => (
                   <div key={list.id}>
                     <Link to={`/Listview/${list.id}`}>
-                    <ListItems image={list.fields.icons ? list.fields.icons[0].url : ''} >
+                    <ListItems image={list.fields.icons ? list.fields.icons[0].image : ''} >
                         <h4>{list.fields.asking}</h4>
                         <h5>{list.fields.name}</h5>
                         <Info>
-                          <h6>Bedroomsx: {list.fields.bedrooms}</h6>
-                          <h6>Bathrooms: {list.fields.bathrooms}</h6>
+                          <h6>Bedrooms: {list.fields.bedRooms}</h6>
+                          <h6>Bathrooms: {list.fields.bathRooms}</h6>
                           <h6>Area: {list.fields.area}</h6>
                           <h6>Status: {list.fields.status}</h6>
                         </Info>
